@@ -27,7 +27,7 @@
 </head>
 <body>
     <h1>Privacy Policy</h1>
-    <p class="date">Effective date: April 24, 2026 | Version 3.0</p>
+    <p class="date">Effective date: May 2, 2026 | Version 3.1</p>
 
     <p>Alate ("we", "our", "the app") is a mobile application developed by <strong>Bits of Tessellate</strong> that helps you predict whether clothing items will fit based on your body profile. This policy explains what data we collect, how we use it, and your rights.</p>
 
@@ -55,6 +55,10 @@
     <h3>f) Crash Reports</h3>
     <p>We use <strong>Sentry</strong> and <strong>Firebase Crashlytics</strong> to collect crash reports and performance traces. These include stack traces, device model, OS version, and a random session identifier. <strong>No body profile data, URLs, or account details are included in crash reports.</strong> Crash data helps us fix bugs and is retained for 90 days.</p>
 
+    <h3>g) Brand Request Data (server-side)</h3>
+    <p>If you paste a URL from a brand we don't yet support, the URL and brand domain are recorded in our backend so we can prioritise which storefronts to onboard next. We do <strong>not</strong> contact the brand on your behalf, and your body profile is never associated with the request.</p>
+    <p>Optionally, you may opt in to be notified by email when we add support for that brand. If you provide an email, it is stored alongside the brand entry for the sole purpose of sending that single notification — never used for marketing, newsletters, or any other communication. Providing this email is optional; the rest of the app works without it.</p>
+
     <h2>2. Age Requirement</h2>
     <p>Alate is intended for users aged <strong>16 or older</strong>. On first launch, the app asks you to confirm your age. If you indicate you're under 16, the app will not collect body profile data from you. Users under 16 who circumvent the age gate by providing inaccurate information are not our intended audience; we will promptly delete any data we discover was collected from someone under 16.</p>
 
@@ -73,7 +77,7 @@
     <p>We use the following service providers strictly to operate the app. None of them receive your body profile data.</p>
     <ul>
         <li><strong>Vercel</strong> — hosts the backend API that processes scrape and fit-check requests. <a href="https://vercel.com/legal/privacy-policy">Privacy Policy</a></li>
-        <li><strong>Supabase</strong> — hosts the opt-out registry and (optional) authentication. Body profile is NOT synced to Supabase. <a href="https://supabase.com/privacy">Privacy Policy</a></li>
+        <li><strong>Supabase</strong> — hosts the brand opt-out registry, the brand-request demand log, and (optional) authentication. Body profile is NOT synced to Supabase. <a href="https://supabase.com/privacy">Privacy Policy</a></li>
         <li><strong>Anthropic (Claude)</strong> — used server-side to enrich scraped product descriptions when the source site lacks structured data. Only public product text is sent, never body profile. <a href="https://www.anthropic.com/privacy">Privacy Policy</a></li>
         <li><strong>Google Gemini</strong> — used server-side as a fallback enrichment model under the same restrictions. <a href="https://policies.google.com/privacy">Privacy Policy</a></li>
         <li><strong>Google Sign-In via Supabase Auth</strong> (optional) — authentication only, if you choose to sign in. <a href="https://policies.google.com/privacy">Privacy Policy</a></li>
@@ -96,7 +100,8 @@
         <li><strong>Crash reports</strong> are retained for 90 days.</li>
         <li><strong>Rate-limit counters</strong> reset every minute and are not persisted.</li>
         <li><strong>Brand opt-out entries</strong> are retained indefinitely so the opt-out persists across deployments.</li>
-        <li><strong>Product URLs</strong> are never retained.</li>
+        <li><strong>Brand request entries</strong> (URL + brand domain) are retained indefinitely as anonymised demand signal. Optional notify-me email addresses are deleted within 30 days of the notification being sent, or upon your request — whichever is sooner.</li>
+        <li><strong>Product URLs from successful scrapes</strong> are never retained.</li>
     </ul>
 
     <h2>7. Your Rights</h2>
@@ -106,6 +111,7 @@
         <li><strong>Clear your fit history</strong> from the History screen → Clear history.</li>
         <li><strong>Sign out</strong> (if signed in) from Account → Sign out.</li>
         <li><strong>Request full account deletion</strong> via our <a href="delete-account.html">web deletion page</a>. All server-side account data is permanently deleted within 30 days.</li>
+        <li><strong>Delete a brand-request notify email</strong> by emailing <a href="mailto:privacy@tessellate.co.in?subject=Delete%20brand-request%20notify%20-%20Alate">privacy@tessellate.co.in</a> with the subject "Delete brand-request notify - Alate" and the email address you provided.</li>
         <li><strong>Request a copy of your data</strong> by emailing us at the address below.</li>
     </ul>
 
@@ -143,8 +149,8 @@
 
     <h2>13. App Store Privacy Details</h2>
     <p><strong>Tracking:</strong> Alate does not track you across other companies' apps or websites. We do not use the IDFA or any device advertising identifier.</p>
-    <p><strong>Data linked to you:</strong> Email address and name (only if you sign in via Google).</p>
-    <p><strong>Data not linked to you:</strong> Body profile (device-only), fit history (device-only), product URLs (ephemeral), device identifier (rate-limiting only), crash reports (PII-scrubbed).</p>
+    <p><strong>Data linked to you:</strong> Email address and name (only if you sign in via Google). Brand-request notify email (only if you opt in to "notify me when added"; held for up to 30 days after the notification is sent).</p>
+    <p><strong>Data not linked to you:</strong> Body profile (device-only), fit history (device-only), product URLs from successful scrapes (ephemeral), unsupported-brand URL + brand domain (anonymised demand signal when no notify email is provided), device identifier (rate-limiting only), crash reports (PII-scrubbed).</p>
     <p><strong>Data used to track you:</strong> None.</p>
 
     <h2>14. Changes to This Policy</h2>

@@ -40,6 +40,7 @@
         <li><strong>Age-gate confirmation</strong> — on your device only.</li>
         <li><strong>Device identifier</strong> (random UUID for rate-limiting) — on your device; the server sees it but doesn't link it to you.</li>
         <li><strong>Google account info</strong> (email + name, only if you signed in) — stored via Supabase Auth server-side.</li>
+        <li><strong>Brand-request notify email</strong> (only if you opted in to "notify me when added" on an unsupported-brand fit-check) — stored server-side until the notification is sent, then deleted within 30 days.</li>
     </ul>
 
     <h2>Delete From the App</h2>
@@ -62,6 +63,11 @@
     <p>If you opted in to Google Sign-In, there are two server-side artefacts to delete: the Supabase Auth record and the account row. To request deletion:</p>
     <p><strong>Email:</strong> <a href="mailto:privacy@tessellate.co.in?subject=Account%20Deletion%20Request%20-%20Alate">privacy@tessellate.co.in</a></p>
     <p>Please include the email address associated with your Google sign-in. We will confirm deletion within 30 days.</p>
+
+    <h2>Delete a Brand-Request Notify Email</h2>
+    <p>If you opted in to be notified when an unsupported brand is added (via the "notify me" prompt on the fit-check error screen), you can request deletion of that record without deleting anything else.</p>
+    <p><strong>Email:</strong> <a href="mailto:privacy@tessellate.co.in?subject=Delete%20brand-request%20notify%20-%20Alate">privacy@tessellate.co.in</a></p>
+    <p>Use the subject "Delete brand-request notify - Alate" and include the email address you provided. We will remove the entry within 30 days.</p>
 
     <div class="highlight">
         <strong>Note:</strong> Deletion is permanent. Since your body profile and fit history live only on your device, uninstalling the app is equivalent to deleting that data — we never see it.
